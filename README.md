@@ -40,7 +40,7 @@ These two values are the main criteria for our buy limit order. The picture belo
 ![](./improvement-schema.png)
 
 ## MQL5 Code
-Based on the previous section, the strategy is coded into a class that is then called by the main trading strategy code. This object-oriented approach ensures that any future improvements or additional features are modular, preventing them from interfering with other strategies.
+By coding the strategy into a class and calling it from the main trading strategy, we've adopted an object-oriented approach. This design ensures that all future improvements and features are modular, preventing any interference with our existing strategies.
 
 ### Trading Strategy Logic - Code Snippet
 The code snippet below is similar to the previous section. However, for the buy signal, the logic has been reversed: it now returns yesterday's low instead of the high, and vice versa for the sell signal. The executeBuy/Sell functions also include the expected reversion in the Take-Profit (TP) and Stop-Loss (SL) calculations. I've only included the code for the buy signal as an example; the full code is available in the [MQL5 folder](https://github.com/handiko/Improvement-to-an-existing-strategy/tree/main/MQL5).
