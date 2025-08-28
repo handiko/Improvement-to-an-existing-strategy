@@ -219,5 +219,10 @@ The picture below shows how the improvement created several new trading entries 
 The improvement to the existing trading strategy is presented here. By observing the "quirks" or the "idiosyncrasies" of each developed trading strategy, one can utilize them to create an additional feature or strategy to improve the performance. The results above showed that by adding such a feature, the overall performance of the strategy has been improved significantly.
 
 ---
-
+MQL5 Codes included in this article:
+1. [Candle Pattern Breakout - USDJPY.mq5](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/Candle%20Pattern%20Breakout%20-%20USDJPY.mq5)
+2. [CandlePatternReversal.mqh - Strategy Class](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/CandlePatternBreakout.mqh)
+3. [CandlePatternBreakout.mqh - Strategy Class](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/CandlePatternBreakout.mqh)
+4. [main.mqh - basic library](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/main.mqh)
+5. [StandardIncludes.mqh - other functions](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/StandardIncludes.mqh)
 ---
