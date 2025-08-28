@@ -19,3 +19,15 @@ During the development process of the previous trading strategy on the USDJPY pa
 
 ![](./improvement-opportunity.png)
 
+## Basic Setup
+As the improvement discussed in this section is an additional buy limit posted after a sell signal is detected, we have to wait for a sell signal to appear first. The buy limit signal will have some dependencies on the sell signal. If we observe the picture above and the general idea behind it, it is mandatory to set the buy limit level at or near the TP level of the sell stop. This will result in the "price rebound" after the sell stop TP is triggered, then trigger the buy limit order. In other words, the buy limit order distance needs to be set as a sell-stop pending distance plus the sell-stop TP distance.
+
+**_Buy Limit Distance = Sell Stop Pending Distance + Sell Stop TP Distance_**
+
+This is an initial value which will then be optimized.
+
+**_Buy Limit TP Distance = Sell Stop TP Distance + some adjustments_**
+
+These two values are the main criteria for our buy limit order. The picture below will give a clearer description.
+
+![](./improvement-schema.png)
