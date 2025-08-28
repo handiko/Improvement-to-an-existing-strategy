@@ -37,8 +37,9 @@ As per the previous section, I code the strategy into a class, which is then cal
 
 ### Trading Strategy Logic - Code Snippet
 The code snippet below is very similar to the previous section, but for the sell signal, instead of returning yesterday's low, it now returns yesterday's high, and vice versa. There are some "reversion" to the calculation of the TP and SL at the executeBuy/Sell function as expected, but that's it basically!!
-I only show the code snippet for the buy signal's logic as an illustration, as you can inspect the full code yourself in the folder.
+I only show the code snippet for the buy signal's logic as an illustration, as you can inspect the full code yourself in the [MQL5 folder](https://github.com/handiko/Improvement-to-an-existing-strategy/tree/main/MQL5).
 
+[CandlePatternReversal.mqh](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/CandlePatternReversal.mqh) :
 ```mql5
 //+------------------------------------------------------------------+
 //|                                                                  |
