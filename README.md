@@ -16,7 +16,7 @@ This part will discuss an improvement to the trading strategy development in the
 
 **I do not recommend that anybody follow my strategy, as I cannot guarantee this strategy will continue to deliver positive results in the future**. **Alpha-decay** (a decay of an algorithmic trading performance) is a real phenomenon, and you should know about it.
 
-I ran the strategy across several forex pairs and indices, and each market has its own setting tailored to its market characteristics. You cannot only rely on one pair/market and hope it will constantly print money. Each market has its own period of several consecutive losses, even though in the long run it still delivers positive results. By deploying the strategy on several markets, any consecutive loss period would be covered by profits from other markets.
+I deployed this strategy across a range of forex pairs and indices, optimizing the settings for each market's unique characteristics. Relying on a single market is insufficient, as each can experience periods of consecutive losses despite being profitable in the long run. By diversifying the strategy across multiple markets, profits from one can offset losses in another, ensuring consistent overall performance.
 
 One more thing, all of the strategy codes presented in this article are the simplified versions of what I am using right now. The simplifications are made to ease the understanding of the underlying logic behind the strategy. You cannot just use the code presented here to trade on a real account. These codes are enough to conduct a backtest and optimization, but still need many additional codes to be run on a real account.
 
@@ -28,7 +28,7 @@ During the development process of the previous trading strategy on the USDJPY pa
 ![](./improvement-opportunity.png)
 
 ## Basic Setup
-As the improvement discussed in this section is an additional buy limit posted after a sell signal is detected, we have to wait for a sell signal to appear first. The buy limit signal will have some dependencies on the sell signal. If we observe the picture above and the general idea behind it, it is mandatory to set the buy limit level at or near the TP level of the sell stop. This will result in the "price rebound" after the sell stop TP is triggered, then trigger the buy limit order. In other words, the buy limit order distance needs to be set as a sell-stop pending distance plus the sell-stop TP distance.
+This improvement involves placing an additional buy limit order after a sell signal is detected. The buy limit signal is therefore dependent on the initial sell signal. As shown in the image above, the buy limit order must be set at or near the take-profit (TP) level of the sell-stop order. This strategy is based on the expectation of a price rebound after the sell-stop's TP is triggered, which would then activate the buy limit order. Consequently, the distance of the buy limit order should be the sum of the sell-stop's pending distance and its TP distance.
 
 **_Buy Limit Distance = Sell Stop Pending Distance + Sell Stop TP Distance_**
 
@@ -44,8 +44,11 @@ These two values are the main criteria for our buy limit order. The picture belo
 As per the previous section, I code the strategy into a class, which is then called by the trading strategy code. With this approach, any additional improvements and features will be modular and will not interfere with our other strategies. 
 
 ### Trading Strategy Logic - Code Snippet
-The code snippet below is very similar to the previous section, but for the buy signal, instead of returning yesterday's high, it now returns yesterday's low, and vice versa. There are some "reversion" to the calculation of the TP and SL in the executeBuy/Sell function as expected, but that's it basically!!
-I only show the code snippet for the buy signal's logic as an illustration, as you can inspect the full code yourself in the [MQL5 folder](https://github.com/handiko/Improvement-to-an-existing-strategy/tree/main/MQL5).
+Here are a few ways to improve those sentences, making them more concise and professional.
+
+Option 1: Direct and Technical
+
+The code snippet below is similar to the previous section. However, for the buy signal, the logic has been reversed: it now returns yesterday's low instead of the high, and vice versa for the sell signal. The executeBuy/Sell functions also include the expected reversion in the Take-Profit (TP) and Stop-Loss (SL) calculations. I've only included the code for the buy signal as an example; the full code is available in the [MQL5 folder](https://github.com/handiko/Improvement-to-an-existing-strategy/tree/main/MQL5).
 
 [CandlePatternReversal.mqh](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/CandlePatternReversal.mqh) :
 ```mql5
@@ -200,10 +203,10 @@ void OnTick() {
 //+------------------------------------------------------------------+
 
 ```
-The parameter values in the code above are already optimized as per the rules in the previous section.
+The code's parameters have been optimized according to the rules in the previous section.
 
 ## The Results
-The picture below shows how the improvement created several new trading entries that are created simultaneously with the sell stop order. Many of them are covering the sell stop trade that failed to reach TP and reversed back to SL.
+The image below illustrates how the improvement generates new trading entries. These entries are created simultaneously with the sell stop order and are designed to cover sell stop trades that reverse back to SL before hitting their take-profit target.
 
 ### Before
 ![](./improvement-opportunity.png)
@@ -216,7 +219,7 @@ The picture below shows how the improvement created several new trading entries 
 ![](./results-after.png)
 
 ## Conclusions
-The improvement to the existing trading strategy is presented here. By observing the "quirks" or the "idiosyncrasies" of each developed trading strategy, one can utilize them to create an additional feature or strategy to improve the performance. The results above showed that by adding such a feature, the overall performance of the strategy has been improved significantly.
+This revised trading strategy offers a significant improvement. By analyzing the unique characteristics of each strategy, we can leverage these insights to create a new feature that boosts performance. The results above demonstrate that this additional feature has significantly enhanced the overall performance of the strategy.
 
 ---
 MQL5 Codes included in this article:
