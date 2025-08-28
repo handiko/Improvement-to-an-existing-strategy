@@ -31,3 +31,12 @@ This is an initial value which will then be optimized.
 These two values are the main criteria for our buy limit order. The picture below will give a clearer description.
 
 ![](./improvement-schema.png)
+
+## MQL5 Code
+As per the previous section, I code the strategy into a class, which is then called by the trading strategy code. With this approach, any additional improvements and features will be modular and will not interfere with our other strategies. 
+
+### Trading Strategy Logic - Code Snippet
+The code snippet below is very similar to the previous section, but for the sell signal, instead of returning yesterday's low, it now returns yesterday's high, and vice versa. There are some "reversion" to the calculation of the TP and SL at the executeBuy/Sell function as expected, but that's it basically!!
+
+```mql5
+```
