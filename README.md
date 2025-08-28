@@ -200,5 +200,9 @@ The picture below shows how the improvement created several new trading entries 
 ### Before
 ![](./improvement-opportunity.png)
 
+![](./backtest-result.png)
+
 ### After
 ![](./after-improvement.png)
+
+![](./results-after.png)
