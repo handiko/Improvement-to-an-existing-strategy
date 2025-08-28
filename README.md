@@ -37,6 +37,68 @@ As per the previous section, I code the strategy into a class, which is then cal
 
 ### Trading Strategy Logic - Code Snippet
 The code snippet below is very similar to the previous section, but for the sell signal, instead of returning yesterday's low, it now returns yesterday's high, and vice versa. There are some "reversion" to the calculation of the TP and SL at the executeBuy/Sell function as expected, but that's it basically!!
+I only show the code snippet for the buy signal's logic as an illustration, as you can inspect the full code yourself in the folder.
 
 ```mql5
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+double CandlePatternReversal::findBuySignal() {
+     ENUM_CANDLE_PATTERN cp;
+     double low;
+     bool candle[3];
+
+     for(int i = 0; i < 3; i++) {
+          candle[i] = (iClose(Pair, Timeframe, i + 1) > iOpen(Pair, Timeframe, i + 1)) ? true : false;
+     }
+
+     if(candle[2] && candle[1] && candle[0]) {
+          cp = UUU;
+     } else if(candle[2] && candle[1] && !candle[0]) {
+          cp = UUD;
+     } else if(candle[2] && !candle[1] && candle[0]) {
+          cp = UDU;
+     } else if(candle[2] && !candle[1] && !candle[0]) {
+          cp = UDD;
+     } else if(!candle[2] && candle[1] && candle[0]) {
+          cp = DUU;
+     } else if(!candle[2] && candle[1] && !candle[0]) {
+          cp = DUD;
+     } else if(!candle[2] && !candle[1] && candle[0]) {
+          cp = DDU;
+     } else {
+          cp = DDD;
+     }
+
+     low = iLow(Pair, Timeframe, 1);
+     if(cp == Pattern) {
+          return low;
+     }
+
+     return -1;
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void CandlePatternReversal::executeBuy(double entry) {
+     entry = NormalizeDouble(entry - LiquidityDist * pairPoint, pairDigits);
+
+     double ask = SymbolInfoDouble(Pair, SYMBOL_ASK);
+     if(ask < entry) return;
+
+     double tp = entry + TakeProfit * pairPoint;
+     tp = NormalizeDouble(tp, pairDigits);
+
+     double sl = entry - StopLoss * pairPoint;
+     sl = NormalizeDouble(sl, pairDigits);
+
+     double lots = Lots;
+
+     datetime expiration = iTime(Pair, Timeframe, 0) + ExpirationHours * PeriodSeconds(PERIOD_H1) - PeriodSeconds(PERIOD_M5);
+
+     trade.BuyLimit(lots, entry, Pair, sl, tp, ORDER_TIME_SPECIFIED, expiration);
+
+     buyPos = trade.ResultOrder();
+}
 ```
