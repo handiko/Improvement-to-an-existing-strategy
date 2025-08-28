@@ -10,20 +10,19 @@ Previous Section (part 3): [Using a Markov chain to determine market risk](https
 Previous Section (part 4): [Trading Strategy Development Example](https://github.com/handiko/Trading-Strategy-Development-Example/blob/main/README.md)
 
 ---
-This part will discuss an improvement to the trading strategy development in the previous part (part 4). I am actually using this improvement in my real trading account.
+Building on the strategy from Part 4, this section discusses a key improvement that I have personally implemented in my live trading.
 
 ## Disclaimer !!!
+**You shouldn't follow this strategy, as I can't guarantee its future performance**. The phenomenon of **_alpha decay_**—the natural decline in a trading algorithm's effectiveness over time—is a well-documented reality that you should be aware of.
 
-**I do not recommend that anybody follow my strategy, as I cannot guarantee this strategy will continue to deliver positive results in the future**. **Alpha-decay** (a decay of an algorithmic trading performance) is a real phenomenon, and you should know about it.
+**I ran the strategy across several forex pairs and indices, and each market has its own setting tailored to its market characteristics**. You cannot only rely on one pair/market and hope it will constantly print money. Each market has its own period of several consecutive losses, even though in the long run it still delivers positive results. By deploying the strategy on several markets, any consecutive loss period would be covered by profits from other markets.
 
-I deployed this strategy across a range of forex pairs and indices, optimizing the settings for each market's unique characteristics. Relying on a single market is insufficient, as each can experience periods of consecutive losses despite being profitable in the long run. By diversifying the strategy across multiple markets, profits from one can offset losses in another, ensuring consistent overall performance.
-
-One more thing, all of the strategy codes presented in this article are the simplified versions of what I am using right now. The simplifications are made to ease the understanding of the underlying logic behind the strategy. You cannot just use the code presented here to trade on a real account. These codes are enough to conduct a backtest and optimization, but still need many additional codes to be run on a real account.
+I have simplified the strategy code in this article to make the underlying logic easier to understand. These code snippets are suitable for backtesting and optimization but require additional programming before they can be deployed in a live trading environment.
 
 ---
 
 ## Background
-During the development process of the previous trading strategy on the USDJPY pair for the Daily timeframe, I noticed something interesting. There are many cases of the sell stop order is triggered, the price falls straight to the take profit level, and then it rebounds up to the entry level or even beyond. This got me thinking, "**_hmmmm... What if I put a buy limit order somewhere near the take profit level?_**". Interesting right? The picture below should give you the idea straight away. Yes, of course, it will not work 100% of the time. But will it improve the overall performance?
+When developing the previous trading strategy for the USDJPY daily timeframe, I observed a frequent pattern: a triggered sell stop order would hit its take-profit (TP) level and immediately rebound back to, or even beyond, the original entry price. This led me to a key hypothesis: **_"What if I place a buy limit order near the sell stop's take-profit level?"_** This approach aims to capitalize on the expected price bounce. While not always successful, the question is whether this additional trade can enhance the strategy's overall performance. The image below illustrates this concept clearly.
 
 ![](./improvement-opportunity.png)
 
@@ -41,7 +40,7 @@ These two values are the main criteria for our buy limit order. The picture belo
 ![](./improvement-schema.png)
 
 ## MQL5 Code
-As per the previous section, I code the strategy into a class, which is then called by the trading strategy code. With this approach, any additional improvements and features will be modular and will not interfere with our other strategies. 
+Based on the previous section, the strategy is coded into a class that is then called by the main trading strategy code. This object-oriented approach ensures that any future improvements or additional features are modular, preventing them from interfering with other strategies.
 
 ### Trading Strategy Logic - Code Snippet
 The code snippet below is similar to the previous section. However, for the buy signal, the logic has been reversed: it now returns yesterday's low instead of the high, and vice versa for the sell signal. The executeBuy/Sell functions also include the expected reversion in the Take-Profit (TP) and Stop-Loss (SL) calculations. I've only included the code for the buy signal as an example; the full code is available in the [MQL5 folder](https://github.com/handiko/Improvement-to-an-existing-strategy/tree/main/MQL5).
