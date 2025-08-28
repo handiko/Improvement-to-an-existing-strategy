@@ -1,6 +1,14 @@
 # Improvement to an Existing Strategy
 --- Part 5 ---
 
+Previous Section (part 1): [Basic Understanding of Markov Chain in Financial Market](https://github.com/handiko/Markov-Chain-In-Financial-Market/blob/main/README.md)
+
+Previous Section (part 2): [Using Markov chain to analyze first insight of a forex pair, index, or any market](https://github.com/handiko/Markov-Chain-UpDown-Day/blob/main/README.md)
+
+Previous Section (part 3): [Using a Markov chain to determine market risk](https://github.com/handiko/Markov-Chain-In-Financial-Market-Risk/blob/main/README.md)
+
+Previous Section (part 4): [Trading Strategy Development Example](https://github.com/handiko/Trading-Strategy-Development-Example/blob/main/README.md)
+
 ---
 This part will discuss an improvement to the trading strategy development in the previous part (part 4). I am actually using this improvement in my real trading account.
 
@@ -206,3 +214,10 @@ The picture below shows how the improvement created several new trading entries 
 ![](./after-improvement.png)
 
 ![](./results-after.png)
+
+## Conclusions
+The improvement to the existing trading strategy is presented here. By observing the "quirks" or the "idiosyncrasies" of each developed trading strategy, one can utilize them to create an additional feature or strategy to improve the performance. The results above showed that by adding such a feature, the overall performance of the strategy has been improved significantly.
+
+---
+
+---
