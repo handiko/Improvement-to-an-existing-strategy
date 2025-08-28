@@ -1,1 +1,1 @@
-# Improvement-to-an-existing-strategy
+# Improvement to an Existing Strategy
