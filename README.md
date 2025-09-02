@@ -205,13 +205,13 @@ The image below illustrates how the improvement generates new trading entries. T
 
 ### Before
 ![](./USDJPYDaily.png)
-
 ![](./backtest-result.png)
+
 
 ### After
 ![](./after-improvement.png)
-
 ![](./results-after.png)
+
 
 ## Conclusions
 This revised trading strategy offers a significant improvement. By analyzing the unique characteristics of each strategy, we can leverage these insights to create a new feature that boosts performance. The results above demonstrate that this additional feature has significantly enhanced the overall performance of the strategy.
