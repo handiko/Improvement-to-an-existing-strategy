@@ -217,10 +217,14 @@ The image below illustrates how the improvement generates new trading entries. T
 This revised trading strategy offers a significant improvement. By analyzing the unique characteristics of each strategy, we can leverage these insights to create a new feature that boosts performance. The results above demonstrate that this additional feature has significantly enhanced the overall performance of the strategy.
 
 ---
+
 MQL5 Codes included in this article:
 1. [Candle Pattern - USDJPY.mq5](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/Candle%20Pattern%20-%20USDJPY.mq5)
 2. [CandlePatternReversal.mqh - Strategy Class](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/CandlePatternReversal.mqh)
 3. [CandlePatternBreakout.mqh - Strategy Class](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/CandlePatternBreakout.mqh)
 4. [main.mqh - basic library](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/main.mqh)
 5. [StandardIncludes.mqh - other functions](https://github.com/handiko/Improvement-to-an-existing-strategy/blob/main/MQL5/StandardIncludes.mqh)
+
 ---
+
+Back to [Index](https://github.com/handiko/handiko/blob/master/README.md)
