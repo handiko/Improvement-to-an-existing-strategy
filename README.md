@@ -204,7 +204,7 @@ The code's parameters have been optimized according to the rules in the previous
 The image below illustrates how the improvement generates new trading entries. These entries are created simultaneously with the sell stop order and are designed to cover sell stop trades that reverse back to SL before hitting their take-profit target.
 
 ### Before
-![](./improvement-opportunity.png)
+![](./USDJPYDaily.png)
 
 ![](./backtest-result.png)
 
