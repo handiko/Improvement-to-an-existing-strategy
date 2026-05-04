@@ -7,7 +7,7 @@ Previous Section (part 2): [Using Markov chain to analyze first insight of a for
 
 Previous Section (part 3): [Using a Markov chain to determine market risk](https://github.com/handiko/Markov-Chain-In-Financial-Market-Risk/blob/main/README.md)
 
-Previous Section (part 4): [Trading Strategy Development Example](handiko.github.io/Trading-Strategy-Development-Example/)
+Previous Section (part 4): [Trading Strategy Development Example](https://handiko.github.io/Trading-Strategy-Development-Example/)
 
 ---
 Building on the strategy from Part 4, this section discusses a key improvement that I have personally implemented in my live trading.
